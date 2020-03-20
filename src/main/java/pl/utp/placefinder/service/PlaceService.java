@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
@@ -24,12 +25,15 @@ public class PlaceService {
     private JsonFactory jsonFactory;
     private ObjectMapper objectMapper;
 
+    int counterApiKey = 0;
+
     @Value("${api.key1}")
     private String apiKey1;
 
     @Value("${api.key2}")
     private String apiKey2;
 
+    @Autowired
     public PlaceService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
         jsonFactory = new JsonFactory();
@@ -42,11 +46,17 @@ public class PlaceService {
 
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromHttpUrl("https://maps.googleapis.com/maps/api/place/nearbysearch/json?")
-                .queryParam("key", apiKey1)
                 .queryParam("location", lat + "," + lng)
                 .queryParam("radius", radius)
                 .queryParam("type", type)
                 .queryParam("language ", "pl");
+
+        if (counterApiKey % 2 == 0) {
+            builder.queryParam("key", apiKey1);
+        } else {
+            builder.queryParam("key", apiKey2);
+        }
+        counterApiKey++;
 
         System.out.println("URI: " + builder.toUriString());
 

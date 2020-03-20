@@ -30,7 +30,7 @@ public class Place {
     String name;
 
     @JsonProperty("open_now")
-    Boolean open_now;
+    Boolean open_now = false;
 
     @JsonProperty("photos")
     Photo[] photos;
@@ -39,7 +39,7 @@ public class Place {
     String place_id;
 
     @JsonProperty("rating")
-    private Double rating;
+    private Double rating = 0.0;
 
     @JsonProperty("reference")
     String reference;

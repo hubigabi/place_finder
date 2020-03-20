@@ -19,7 +19,7 @@ public class InitService {
 
     @PostConstruct
     public void init() {
-        List<Place> places = placeService.makeRequest(53.1422, 17.6017, 2000, "restaurant");
-        places.forEach(System.out::println);
+//        List<Place> places = placeService.makeRequest(53.1422, 17.6017, 2000, "restaurant");
+//        places.forEach(System.out::println);
     }
 }
