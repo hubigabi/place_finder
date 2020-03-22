@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.utp.placefinder.model.Place;
+import rx.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,35 @@ public class PlaceService {
         System.out.println("URI: " + builder.toUriString());
 
         ResponseEntity<String> response = restTemplate.getForEntity(builder.toUriString(), String.class);
-        if (response.getStatusCode() == HttpStatus.OK) {
+
+        Observable.just(response).filter(res -> res.getStatusCode() == HttpStatus.OK).map(r -> r.getBody()).subscribe(
+                s -> {
+                    try {
+                        if (objectMapper.readTree(s).get("status").asText().equals("OVER_QUERY_LIMIT")) {
+                            System.err.println("OVER_QUERY_LIMIT");
+                        }
+
+                        JsonNode resultsArrayNode = objectMapper.readTree(s).get("results");
+
+                        if (resultsArrayNode.isArray()) {
+                            Observable.from(resultsArrayNode).toBlocking().subscribe(placeJsonNodee ->
+                                    {
+                                        try {
+                                            Place place = objectMapper.treeToValue(placeJsonNodee, Place.class);
+                                            places.add(place);
+                                        } catch (JsonProcessingException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                            );
+
+                        }
+                    } catch (JsonProcessingException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+/*        if (response.getStatusCode() == HttpStatus.OK) {
             String responseString = response.getBody();
 
             try {
@@ -82,7 +111,7 @@ public class PlaceService {
             }
         } else {
             System.err.println("Status code is not OK!");
-        }
+        }*/
 
         return places;
     }
