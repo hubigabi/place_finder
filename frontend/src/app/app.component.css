@@ -1,0 +1,47 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+
+}
+
+.logo {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo > img {
+  width: 128px;
+}
+
+h1.logo-h1 {
+  font-size: 50px;
+  font-family: Lato, "Helvetica Neue", sans-serif;
+  margin: 1em 0;
+}
+
+.description, .location {
+  margin-top: 3em;
+}
+
+.address {
+  width: 100%;
+}
+
+.panel-map {
+  margin-bottom: 2em;
+}
+
+#map {
+  height: 600px;
+}
+
+.type-places, .radius {
+  width: 40%;
+  margin-right: 4%;
+}
+
+.btn-search {
+  width: 12%;
+}

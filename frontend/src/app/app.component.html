@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="logo">
+    <img src="../assets/map.svg" alt="logo-place-finder">
+    <h1 class="logo-h1">Place Finder</h1>
+  </div>
+
+  <div class="description">
+    <h2>What is it Place Finder?</h2>
+    <p>Place Finder is a application which you allow searching places in your around.
+      Choose location, type of places and entering radius in meters and that's it, now you can browse through places in the nearest area.  </p>
+  </div>
+
+  <div class="location">
+    <h2>Search Place</h2>
+    <mat-form-field class="address">
+      <mat-label>Address</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <p style="text-align: center;">or</p>
+    <mat-expansion-panel class="panel-map">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Map
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div id="map"></div>
+
+    </mat-expansion-panel>
+
+    <mat-form-field class="radius">
+      <mat-label>Radius (in meters)</mat-label>
+      <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="type-places">
+      <mat-label>Type of places</mat-label>
+      <mat-select>
+        <mat-option>
+          Restaurant
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="btn-search">Search</button>
+  </div>
+</div>
+

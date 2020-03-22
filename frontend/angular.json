@@ -29,7 +29,9 @@
               },
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/map.js"
+            ]
           },
           "configurations": {
             "production": {
