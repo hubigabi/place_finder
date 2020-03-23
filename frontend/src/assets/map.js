@@ -1,11 +1,45 @@
-function showMap() {
-  var map = L.map('map').setView([51.505, -0.09], 13);
+var map;
+var marker;
+function showMap(lat, long) {
+  var redIcon = new L.Icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+
+  map = L.map('map').setView([lat, long], 10);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('Test')
+  marker = L.marker([lat, long], {icon: redIcon}).addTo(map)
+    .bindPopup('Your localization')
     .openPopup();
+
+  map.addEventListener("click", function(e) {
+      marker.remove();
+      marker = new L.marker(e.latlng, {icon: redIcon}).addTo(map)
+        .bindPopup("Your point")
+        .openPopup();
+  })
+}
+
+function addPlacesOnMap(places) {
+  for (var i = 0; i < places.length; i++) {
+    console.log(places[i]);
+    L.marker([places[i].lat, places[i].lng]).addTo(map)
+      .bindPopup('<b>' + places[i].name + '</b>'
+        + "<br>Rating: " + places[i].rating
+        + "<br>Number of votes: " + places[i].user_ratings_total
+        + "<br>Opened: " + places[i].open_now)
+      .openPopup()
+  }
+}
+
+function getMarkerLocation() {
+  return marker.getLatLng();
 }

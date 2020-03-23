@@ -14,7 +14,7 @@
     <h2>Search Place</h2>
     <mat-form-field class="address">
       <mat-label>Address</mat-label>
-      <input matInput>
+      <input matInput name="address" [(ngModel)]="requestFind.address">
     </mat-form-field>
     <p style="text-align: center;">or</p>
     <mat-expansion-panel class="panel-map">
@@ -30,18 +30,18 @@
 
     <mat-form-field class="radius">
       <mat-label>Radius (in meters)</mat-label>
-      <input matInput>
+      <input matInput name="radius" [(ngModel)]="requestFind.radius">
     </mat-form-field>
 
     <mat-form-field class="type-places">
       <mat-label>Type of places</mat-label>
-      <mat-select>
-        <mat-option>
-          Restaurant
+      <mat-select name="type" [(ngModel)]="requestFind.type">
+        <mat-option *ngFor="let type of typePlaces" [value]="type.value">
+          {{type.value}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="btn-search">Search</button>
+    <button mat-raised-button color="primary" class="btn-search" (click)="searchPlaces()">Search</button>
   </div>
 </div>
 
