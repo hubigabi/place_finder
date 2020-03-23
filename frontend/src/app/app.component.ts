@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   requestFind : RequestFindPlaces = {
     address: "",
     lat: 0,
-    lon: 0,
+    lng: 0,
     radius: 1000,
     type: ""
   };
@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
   searchPlaces() {
     let locationMarker = new getMarkerLocation();
     this.requestFind.lat = locationMarker.lat;
-    this.requestFind.lon = locationMarker.lng;
+    this.requestFind.lng = locationMarker.lng;
 
     this.placeService.findPlaces(this.requestFind).subscribe(n => {
       this.showPlaces(n);
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
 export interface RequestFindPlaces {
   address: string,
   lat: number,
-  lon: number,
+  lng: number,
   radius: number,
   type: string
 }

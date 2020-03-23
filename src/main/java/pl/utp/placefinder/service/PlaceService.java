@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.utp.placefinder.model.Place;
+import pl.utp.placefinder.model.RequestFindPlaces;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,15 +41,15 @@ public class PlaceService {
         objectMapper = new ObjectMapper(jsonFactory);
     }
 
-    public List<Place> makeRequest(double lat, double lng, int radius, String type) {
+    public List<Place> makeRequest(RequestFindPlaces requestFindPlaces) {
 
         List<Place> places = new ArrayList<>();
 
         UriComponentsBuilder builder = UriComponentsBuilder
                 .fromHttpUrl("https://maps.googleapis.com/maps/api/place/nearbysearch/json?")
-                .queryParam("location", lat + "," + lng)
-                .queryParam("radius", radius)
-                .queryParam("type", type)
+                .queryParam("location", requestFindPlaces.getLat() + "," + requestFindPlaces.getLng())
+                .queryParam("radius", requestFindPlaces.getRadius())
+                .queryParam("type", requestFindPlaces.getType())
                 .queryParam("language ", "pl");
 
         if (counterApiKey % 2 == 0) {
