@@ -1,5 +1,6 @@
 var map;
 var marker;
+var markersPlace = [];
 function showMap(lat, long) {
   var redIcon = new L.Icon({
     iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
@@ -29,15 +30,22 @@ function showMap(lat, long) {
 }
 
 function addPlacesOnMap(places) {
+  removePreviousMarkers();
   for (var i = 0; i < places.length; i++) {
-    console.log(places[i]);
-    L.marker([places[i].lat, places[i].lng]).addTo(map)
+    markersPlace[i] = L.marker([places[i].lat, places[i].lng]).addTo(map)
       .bindPopup('<b>' + places[i].name + '</b>'
         + "<br>Rating: " + places[i].rating
         + "<br>Number of votes: " + places[i].userRatingsTotal
         + "<br>Opened: " + places[i].openNow)
       .openPopup()
   }
+}
+
+function removePreviousMarkers() {
+  for(var i=0; i<markersPlace.length; i++){
+    markersPlace[i].remove();
+  }
+  markersPlace = [];
 }
 
 function getMarkerLocation() {
