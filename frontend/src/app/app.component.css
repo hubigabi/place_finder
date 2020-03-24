@@ -21,7 +21,7 @@ h1.logo-h1 {
   margin: 1em 0;
 }
 
-.description, .location {
+.description, .location, .outputs {
   margin-top: 3em;
 }
 
@@ -44,4 +44,9 @@ h1.logo-h1 {
 
 .btn-search {
   width: 12%;
+}
+
+.outputs > table {
+  width: 100%;
+  margin: 3em 0;
 }
