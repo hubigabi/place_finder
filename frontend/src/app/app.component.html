@@ -44,7 +44,7 @@
     <button mat-raised-button color="primary" class="btn-search" (click)="searchPlaces()">Search</button>
   </div>
 
-  <div class="outputs" [hidden]="dataSource == null">
+  <div class="outputs" [hidden]="dataSource == null || dataSource.filteredData.length == 0">
     <h2>List of places</h2>
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="name">
@@ -75,6 +75,10 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div>
+
+  <div class="outputs" *ngIf="dataSource != null && dataSource.filteredData.length == 0">
+    <p class="error">There aren't places in the area</p>
   </div>
 </div>
 
