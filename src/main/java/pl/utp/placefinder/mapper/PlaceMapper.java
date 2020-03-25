@@ -8,7 +8,8 @@ import pl.utp.placefinder.model.PlaceDTO;
 public class PlaceMapper {
 
     public PlaceDTO convertToPlaceDTO(Place place) {
-        return new PlaceDTO(place.getLat(), place.getLng(), place.getName(), place.getRating(), place.getUser_ratings_total(), place.getOpen_now());
+        return new PlaceDTO(place.getLat(), place.getLng(), place.getName(), place.getRating(), place.getUser_ratings_total(),
+                place.getOpen_now(), place.getVicinity());
     }
 
 }

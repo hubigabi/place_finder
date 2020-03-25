@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     radius: 5000,
     type: this.typePlaces[0].value,
   };
-  displayedColumns: string[] = ['name', 'rating', 'userRatingsTotal', 'openNow'];
+  displayedColumns: string[] = ['name', 'address', 'rating', 'userRatingsTotal', 'openNow'];
   dataSource = null;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

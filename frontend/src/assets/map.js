@@ -34,6 +34,7 @@ function addPlacesOnMap(places) {
   for (var i = 0; i < places.length; i++) {
     markersPlace[i] = L.marker([places[i].lat, places[i].lng]).addTo(map)
       .bindPopup('<b>' + places[i].name + '</b>'
+        + "<br>Address: " + places[i].address
         + "<br>Rating: " + places[i].rating
         + "<br>Number of votes: " + places[i].userRatingsTotal
         + "<br>Opened: " + places[i].openNow)

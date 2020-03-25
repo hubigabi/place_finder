@@ -14,4 +14,5 @@ public class PlaceDTO {
     private Double rating;
     private Integer userRatingsTotal;
     private Boolean openNow;
+    private String address;
 }

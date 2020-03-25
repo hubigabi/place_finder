@@ -3,6 +3,7 @@ export interface Place {
   lng: number,
   name: string,
   rating: number,
-  userRatingsTotal: number
-  openNow: string
+  userRatingsTotal: number,
+  openNow: string,
+  address: string
 }
