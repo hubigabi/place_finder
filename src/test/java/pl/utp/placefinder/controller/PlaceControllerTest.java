@@ -64,7 +64,6 @@ public class PlaceControllerTest {
                 .andExpect(content().contentType("application/json;"))
                 .andExpect(jsonPath("$.*", hasSize(placeList.size())))
                 .andDo(MockMvcResultHandlers.print());
-
     }
 
     @Test
@@ -80,7 +79,6 @@ public class PlaceControllerTest {
 
         ObjectMapper mapper = new ObjectMapper();
         String requestFindPlacesJSON = mapper.writeValueAsString(requestFindPlaces);
-        System.out.println(requestFindPlacesJSON);
 
         mvc.perform(MockMvcRequestBuilders.post("/api/place")
                 .contentType(APPLICATION_JSON)
