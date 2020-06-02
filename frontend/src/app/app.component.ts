@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     {value: "supermarket"}, {value: "train_station"}];
 
   requestFind : RequestFindPlaces = {
-    address: "",
     lat: 0,
     lng: 0,
     radius: 5000,
@@ -69,7 +68,6 @@ export class AppComponent implements OnInit {
 }
 
 export interface RequestFindPlaces {
-  address: string,
   lat: number,
   lng: number,
   radius: number,
