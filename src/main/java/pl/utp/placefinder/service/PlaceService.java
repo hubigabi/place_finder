@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.utp.placefinder.model.Place;
 import pl.utp.placefinder.model.RequestFindPlaces;
-import rx.*;
+import rx.Observable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,30 +90,6 @@ public class PlaceService {
                         e.printStackTrace();
                     }
                 });
-
-/*        if (response.getStatusCode() == HttpStatus.OK) {
-            String responseString = response.getBody();
-
-            try {
-                if (objectMapper.readTree(responseString).get("status").asText().equals("OVER_QUERY_LIMIT")) {
-                    System.err.println("OVER_QUERY_LIMIT");
-                }
-
-                JsonNode resultsArrayNode = objectMapper.readTree(responseString).get("results");
-
-                if (resultsArrayNode.isArray()) {
-                    for (JsonNode placeJsonNode : resultsArrayNode) {
-                        Place place = objectMapper.treeToValue(placeJsonNode, Place.class);
-                        places.add(place);
-                    }
-                }
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.err.println("Status code is not OK!");
-        }*/
-
         return places;
     }
 
