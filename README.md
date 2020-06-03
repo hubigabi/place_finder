@@ -1,5 +1,5 @@
-# Fuel-scanner
-Place Finder is a application which you allow searching places in your around. Choose location, type of places and entering radius in meters and that's it, now you can browse through places in the nearest area.
+# Place Finder
+Place Finder is an application that you allow searching places in your around. Choose location, type of places, and entering radius in meters and that's it, now you can browse through places in the nearest area.
 
 ## Technologies
 - Spring Boot 
