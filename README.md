@@ -1,5 +1,5 @@
 # Place Finder
-Place Finder is an application that you allow searching places in your around. Choose location, type of places, and entering radius in meters and that's it, now you can browse through places in the nearest area.
+Place Finder is an application that allows you to search for places in your around. Choose location, type of places, and entering radius in meters and that's it, now you can browse through places in the nearest area.
 
 ## Technologies
 - Spring Boot 
@@ -7,6 +7,15 @@ Place Finder is an application that you allow searching places in your around. C
 - Leaflet
 - JPA
 - H2
+
+## Demo
+The application is available here: https://placefinder1.herokuapp.com/
+
+<p>
+<img src="https://imgur.com/MIwDTT3" alt="demo1" width="600"/>
+<img src="https://imgur.com/yPhjAP5" alt="demo2" width="600"/>
+<img src="https://imgur.com/yPhjAP5" alt="demo3" width="600"/>
+</p>
 
 ## Usage
 To run the application you will need <a href="https://git-scm.com/">Git</a>, <a href="https://nodejs.org/en/download/">Node.js</a> and <a href="https://www.oracle.com/java/technologies/javase-downloads.html">Java</a> installed on your computer.
