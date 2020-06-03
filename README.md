@@ -12,9 +12,9 @@ Place Finder is an application that allows you to search for places in your arou
 The application is available here: https://placefinder1.herokuapp.com/
 
 <p>
-<img src="https://imgur.com/MIwDTT3" alt="demo1" width="600"/>
-<img src="https://imgur.com/yPhjAP5" alt="demo2" width="600"/>
-<img src="https://imgur.com/yPhjAP5" alt="demo3" width="600"/>
+<img src="https://i.imgur.com/MIwDTT3.png" alt="demo1" width="600"/>
+<img src="https://i.imgur.com/yPhjAP5.jpg" width="600"/>
+<img src="https://i.imgur.com/wXqNl9R.png5" alt="demo3" width="600"/>
 </p>
 
 ## Usage
