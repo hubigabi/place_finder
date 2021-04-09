@@ -1,5 +1,5 @@
 # Place Finder
-Place Finder is an application that allows you to search for places in your around. Choose location, type of places, and entering radius in meters and that's it, now you can browse through places in the nearest area.
+Place Finder is an application that allows you to search for places in your around. Choose location, type of places, and enter radius in meters and that's it, now you can browse through places in the nearest area.
 
 ## Technologies
 - Spring Boot 
